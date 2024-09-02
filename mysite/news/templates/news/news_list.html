@@ -1,0 +1,27 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+<h1>Новости</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Описание</th>
+            <th>Дата создания</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in news %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.author }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.created_at|date:"d-m-Y H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
